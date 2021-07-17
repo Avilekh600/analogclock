@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        body{
+            background-color: rgb(233, 197, 184);
+        }
+        .container{
+                display: block;
+                width: fit-content;
+                margin: 5rem auto;
+                position: relative;
+        }
+        .clock{
+            width: 40rem;
+            height: 40rem;
+            border-radius: 50%;
+            box-shadow: 0rem 0rem 2rem black;
+        }
+        #hour{
+            background-color: maroon;
+            width: 1.5rem;
+            height: 9rem;
+            position: absolute;
+            top: 11rem;
+            left: 19rem;
+            border-radius: 20px;
+            transform-origin: bottom;
+        }
+        #minute{
+            background-color: pink;
+            height: 12rem;
+            position: absolute;
+            top: 8rem;
+            left: 19.2rem;
+            width: 1.1rem;
+            border-radius: 20px;
+            transform-origin: bottom;
+        }
+        #second{
+            background-color: blue;
+            height: 15rem;
+            position: absolute;
+            top: 5rem;
+            left: 19.5rem;
+            width: .5rem;
+            border-radius: 20px;
+            transform-origin: bottom;
+        }
+        .dot{
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            top: 18rem;
+            left: 17.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="clock"> <img src="./roman-numerals-png-42134.jpg" alt="clock" class="clock"></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+         setInterval(() => {
+                  d = new Date();
+                  htime = d.getHours();
+                  mtime = d.getMinutes();
+                  stime = d.getSeconds();
+                  hrotation = 30*htime + mtime/2;
+                  mrotation = 6*mtime;
+                  srotation = 6*stime;
+
+                  hour.style.transform = `rotate(${hrotation}deg)`;
+                  minute.style.transform = `rotate(${mrotation}deg)`;
+                  second.style.transform = `rotate(${srotation}deg)`;
+        }, 1000);
+    </script>
+</body>
+</html>
